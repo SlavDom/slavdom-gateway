@@ -4,6 +4,7 @@
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
+    <logger name="io.undertow" level="WARN"/>
     <logger name="org.springframework" level="WARN"/>
     <logger name="org.xnio" level="WARN"/>
 
