@@ -1,0 +1,7 @@
+logging:
+  level:
+    ROOT: DEBUG
+    com.slavdom: DEBUG
+
+server:
+  port: 8080
