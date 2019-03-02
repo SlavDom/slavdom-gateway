@@ -32,6 +32,8 @@ dependencyManagement {
     }
 }
 
+defaultTasks 'bootRun'
+
 bootWar {
     mainClassName = 'com.slavdom.GatewayApp'
 }
@@ -40,9 +42,7 @@ war {
     webAppDirName = 'build/www/'
     enabled = true
     classifier = 'original'
-}
-
-defaultTasks 'bootRun'
+}   
 
 group = 'com.slavdom'
 version = '0.0.1'
@@ -58,6 +58,11 @@ if (project.hasProperty('prod')) {
     apply from: 'gradle/profile_prod.gradle'
 } else {
     apply from: 'gradle/profile_dev.gradle'
+}
+
+configurations {
+    providedRuntime
+    compile.exclude module: "spring-boot-starter-tomcat"
 }
 
 repositories {
@@ -87,7 +92,6 @@ if (project.hasProperty('nodeInstall')) {
     node {
         version = "${node_version}"
         npmVersion = "${npm_version}"
-        yarnVersion = "${yarn_version}"
         download = true
     }
 }

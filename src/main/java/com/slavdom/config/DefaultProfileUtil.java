@@ -21,7 +21,6 @@ public class DefaultProfileUtil {
     public static void addDefaultProfile(SpringApplication app) {
         Map<String, Object> defaultProperties =  new HashMap<>();
         defaultProperties.put(SPRING_PROFILE_DEFAULT, SlavdomConstants.SPRING_PROFILE_DEVELOPMENT);
-        System.out.println(defaultProperties);
         app.setDefaultProperties(defaultProperties);
     }
 
