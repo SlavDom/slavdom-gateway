@@ -1,7 +1,30 @@
 logging:
-  level:
-    ROOT: DEBUG
-    com.slavdom: DEBUG
+    level:
+        ROOT: DEBUG
+        com.slavdom: DEBUG
+
+spring:
+    profiles:
+        active: dev
+    jackson:
+        serialization:
+            indent-output: true
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5432/slavdom
+        username: slavdom
+        password:
+        hikari:
+            auto-commit: false
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+        database: POSTGRESQL
+        show-sql: true
+        properties:
+            hibernate.id.new_generator_mappings: true
+            hibernate.generate_statistics: true
+            hibernate.connection.provider_disables_autocommit: true
+            hibernate.jdbc.lob.non_contextual_creation=true:
 
 server:
-  port: 8080
+    port: 8080
